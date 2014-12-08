@@ -2,7 +2,7 @@
 <c2project>
     <name>Glow Drop</name>
     <description>Physics Puzzle game about eliminating drops. Made for Ludum Dare 31.</description>
-    <version>1.0.0.0</version>
+    <version>1.0</version>
     <author>Gamepopper</author>
     <author-email>info@gamepopper.co.uk</author-email>
     <author-website>http://gamepopper.co.uk/</author-website>
@@ -50,7 +50,7 @@
         <prop name="Orientations">Portrait</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D web</prop>
-        <prop name="Preview browser">Chrome</prop>
+        <prop name="Preview browser">Node-Webkit</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>

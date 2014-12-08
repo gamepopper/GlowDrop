@@ -12,10 +12,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <open-tabs>
         <layout>SingleScreen</layout>
         <event-sheet>MainEventSheet</event-sheet>
-        <event-sheet>GameSheet</event-sheet>
+        <event-sheet active="1">GameSheet</event-sheet>
         <event-sheet>DemoSheet</event-sheet>
         <event-sheet>TitleSheet</event-sheet>
-        <event-sheet active="1">MenuSheet</event-sheet>
+        <event-sheet>MenuSheet</event-sheet>
         <event-sheet>GameOverSheet</event-sheet>
     </open-tabs>
     <properties>

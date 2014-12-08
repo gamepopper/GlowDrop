@@ -434,6 +434,17 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="3033998906635077">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="2020280842546294" type="Ball">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="5761863187850556" type="Ball" />
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
                 <event-block sid="8604109905397977">
@@ -646,33 +657,59 @@
                         <action id="-9" name="Destroy" sid="6568831807696577" type="PowerUp" />
                     </actions>
                 </event-block>
-                <event-block sid="1777263269072425">
+                <event-block sid="9272490361928934">
                     <conditions>
-                        <condition id="-33" name="Pick by comparison" sid="5917888377560573" type="System">
-                            <param id="0" name="Object">Ball</param>
-                            <param id="1" name="Expression">Ball.Y</param>
-                            <param id="2" name="Comparison">2</param>
-                            <param id="3" name="Value">0</param>
+                        <condition id="-8" name="Compare two values" sid="2592289079079442" type="System">
+                            <param id="0" name="First value">Ball.Count</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">100</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="3447949551713844">
+                        <event-block sid="1998757139806162">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="2165468674180003" type="System">
-                                    <param id="0" name="First value">Ball.PickedCount</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Second value">25</param>
+                                <condition id="-2" name="Compare Y" sid="467117901362092" type="Ball">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="9129917920952856" type="Function">
-                                    <param id="0" name="Name">&quot;EndGame&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
+                                <action id="-10" name="Add to" sid="3463603108165421" type="System">
+                                    <param id="0" name="Variable">OuterGridTimer</param>
+                                    <param id="1" name="Value">dt</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="5948629711510413">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3531021886761002" type="System">
+                                            <param id="0" name="Variable">OuterGridTimer</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7989936957381536" type="Function">
+                                            <param id="0" name="Name">&quot;EndGame&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="3542734707470276">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="1162957363579219" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3281942620839647" type="System">
+                            <param id="0" name="Variable">OuterGridTimer</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="2168378616798148">
                     <conditions>
