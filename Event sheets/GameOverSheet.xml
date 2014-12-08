@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GameOverSheet</name>
+    <events>
+        <event-block sid="4653765850920135">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="721001290530855" type="System">
+                    <param id="0" name="Variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1617982940776164">
+                    <conditions>
+                        <condition id="-16" name="Is on layer" sid="5818874168501797" type="LevelText">
+                            <param id="0" name="Layer">&quot;GameOver&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="5739015738016747" type="LevelText">
+                            <param id="0" name="Text">&quot;GAME OVER&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4853071757314445">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="7529611403538361" type="System">
+                            <param id="0" name="First value">Ball.Count</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="8843667621848227" type="System">
+                            <param id="0" name="Seconds">4</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5056457894301354" type="System">
+                            <param id="0" name="Variable">State</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="9395576063256253" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

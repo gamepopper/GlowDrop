@@ -1,0 +1,732 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Glow Drop</name>
+    <description>Physics Puzzle game about eliminating drops. Made for Ludum Dare 31.</description>
+    <version>1.0.0.0</version>
+    <author>Gamepopper</author>
+    <author-email>info@gamepopper.co.uk</author-email>
+    <author-website>http://gamepopper.co.uk/</author-website>
+    <app-id>com.gamepopper.ld31</app-id>
+    <unique-id>2m2oqhlgof90t</unique-id>
+    <saved-with-version>19100</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="blurvertical">Blur Vertical</effect>
+        <effect author="Scirra" id="glowhorizontal">Glow Horizontal</effect>
+        <effect author="Scirra" id="glowvertical">Glow Vertical</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>480</width>
+        <height>854</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>0</preview-effects>
+    <first-layout>SingleScreen</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">No</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar only</prop>
+        <prop name="Orientations">Portrait</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D web</prop>
+        <prop name="Preview browser">Chrome</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Wall" sid="6236579854473469">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="9167234964579724">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7928753370845828" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Ball" sid="7285759936841141">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="ToDestroy" sid="8742588885564233" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Physics" sid="9015697499690576">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8291736058124076" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallY.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallR.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallG.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallB.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallM.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallC.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="7889347938465074">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Function" sid="98332538296681">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Bottom" sid="4874345937883223">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="8951585562246122">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9820145511655478" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PowerUp" sid="3311808253338829">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="4170150565400579">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="5" loop="0" name="Random" pingpong="0" repeatcount="1" repeatto="0" sid="7087801929347641" speed="1">
+                    <frame duration="2" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUR5.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUR4.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUR3.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUR2.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUR1.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="5" loop="0" name="Impulse" pingpong="0" repeatcount="1" repeatto="0" sid="5245263951699982" speed="1">
+                    <frame duration="2" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUI5.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUI4.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUI3.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUI2.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUI1.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="5" loop="0" name="Clear" pingpong="0" repeatcount="1" repeatto="0" sid="3586929872739837" speed="1">
+                    <frame duration="2" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUC5.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUC4.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUC3.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUC2.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUC1.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ClearLine" sid="7539701352867277">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9346873681154809" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ClearLineTrail" sid="2137369605800315">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="9446260711591181">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9778036768420915" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TitleLogo" sid="2619953918918952">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3337824216398929" speed="5">
+                    <frame duration="1" hotspotX="0.498674" hotspotY="0.5" original-source="I:\Game Dev\LD31\Title.png">
+                        <collision-poly>
+                            <point x="0.183024" y="0.212121" />
+                            <point x="0.803714" y="0.272727" />
+                            <point x="0.965517" y="0.5" />
+                            <point x="0.830239" y="0.878788" />
+                            <point x="0.193634" y="0.727273" />
+                            <point x="0.0265252" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GamepopperLogo" sid="9022033659688732">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1883574424577364" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Tim\Pictures\1360621677.crazy-go-lucky_09gp-.png">
+                        <collision-poly>
+                            <point x="0.123636" y="0.0921409" />
+                            <point x="0.5" y="0.181572" />
+                            <point x="0.9" y="0.0745257" />
+                            <point x="0.94" y="0.5" />
+                            <point x="0.887273" y="0.915989" />
+                            <point x="0.5" y="0.974255" />
+                            <point x="0.112727" y="0.915989" />
+                            <point x="0.0781818" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Overlay" sid="3037326076208718">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Fade" sid="2344654621115599">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="ScoreText" sid="4029658013260662">
+            <plugin id="Spritefont2" />
+            <texture original-source="I:\Game Dev\LD31\SpriteFont_AdventurerSF(24).png" />
+        </object-type>
+        <object-type name="LevelText" sid="3287937796630443">
+            <plugin id="Spritefont2" />
+            <texture original-source="I:\Game Dev\LD31\SpriteFont_AdventurerSF(24).png" />
+        </object-type>
+        <object-type name="BonusText" sid="5111079702351862">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Fade" sid="6137489736157673">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="I:\Game Dev\LD31\SpriteFont_AdventurerSF(SmallNumbers).png" />
+        </object-type>
+        <object-type name="ScanLines" sid="1469610845027964">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Buttons" sid="7056102265067497">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="6793011740562525">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="7" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1676364680671572" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="I:\Game Dev\LD31\StartButton.png">
+                        <collision-poly>
+                            <point x="0.0578947" y="0.00552486" />
+                            <point x="0.942105" y="0.00552486" />
+                            <point x="0.778947" y="0.469613" />
+                            <point x="0.684211" y="0.662983" />
+                            <point x="0.5" y="0.98895" />
+                            <point x="0.226316" y="0.469613" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="1.0221" original-source="I:\Game Dev\LD31\HowToButton.png">
+                        <collision-poly>
+                            <point x="0.0578947" y="0.00552486" />
+                            <point x="0.942105" y="0.00552486" />
+                            <point x="0.778947" y="0.469613" />
+                            <point x="0.684211" y="0.662983" />
+                            <point x="0.5" y="0.98895" />
+                            <point x="0.226316" y="0.469613" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="1.0221" original-source="I:\Game Dev\LD31\TipsButton.png">
+                        <collision-poly>
+                            <point x="0.0578947" y="0.00552486" />
+                            <point x="0.942105" y="0.00552486" />
+                            <point x="0.778947" y="0.469613" />
+                            <point x="0.684211" y="0.662983" />
+                            <point x="0.5" y="0.98895" />
+                            <point x="0.226316" y="0.469613" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.505155" hotspotY="0.5" original-source="I:\Game Dev\LD31\Button.png">
+                        <collision-poly>
+                            <point x="0.0618557" y="0.0108696" />
+                            <point x="0.927835" y="0.0108696" />
+                            <point x="0.768041" y="0.467391" />
+                            <point x="0.675258" y="0.657609" />
+                            <point x="0.494845" y="0.978261" />
+                            <point x="0.226804" y="0.467391" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.494845" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.938144" y="0.98913" />
+                            <point x="0.072165" y="0.98913" />
+                            <point x="0.231959" y="0.532609" />
+                            <point x="0.324742" y="0.342391" />
+                            <point x="0.505155" y="0.0217391" />
+                            <point x="0.773196" y="0.532609" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.505155">
+                        <collision-poly>
+                            <point x="0.98913" y="0.0618557" />
+                            <point x="0.98913" y="0.927835" />
+                            <point x="0.532609" y="0.768041" />
+                            <point x="0.342391" y="0.675258" />
+                            <point x="0.0217391" y="0.494845" />
+                            <point x="0.532609" y="0.226804" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.494845">
+                        <collision-poly>
+                            <point x="0.0108696" y="0.938144" />
+                            <point x="0.0108696" y="0.072165" />
+                            <point x="0.467391" y="0.231959" />
+                            <point x="0.657609" y="0.324742" />
+                            <point x="0.978261" y="0.505155" />
+                            <point x="0.467391" y="0.773196" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TopLeft" sid="7944376861838071">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1309258453210239" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MenuText" sid="8546891089013339">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Pin" sid="8556855192830834">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="I:\Game Dev\LD31\SpriteFont_AdventurerSF(24).png" />
+        </object-type>
+        <object-type name="WebStorage" sid="8808846353929846">
+            <plugin id="WebStorage" />
+        </object-type>
+        <object-type name="Audio" sid="6079775612827713">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="HowToExample" sid="7286758759477691">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="232135358094218">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="975840774655217" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\Example.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Tips" sid="8339128069277489">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="58689580672764">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="5" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2717218938422765" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUR5.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.578125" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.390625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUI5.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.578125" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.390625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\PUC5.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.578125" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.765625" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.390625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallR.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="I:\Game Dev\LD31\BallY.png">
+                        <collision-poly>
+                            <point x="0.140625" y="0.140625" />
+                            <point x="0.5" y="0.015625" />
+                            <point x="0.859375" y="0.140625" />
+                            <point x="0.984375" y="0.5" />
+                            <point x="0.859375" y="0.859375" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.140625" y="0.859375" />
+                            <point x="0.015625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Browser" sid="9858371156055364">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="Keyboard" sid="9123629775687311">
+            <plugin id="Keyboard" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>SingleScreen.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>MainEventSheet.xml</event-sheet>
+        <event-sheet>GameSheet.xml</event-sheet>
+        <event-sheet>DemoSheet.xml</event-sheet>
+        <event-sheet>TitleSheet.xml</event-sheet>
+        <event-sheet>MenuSheet.xml</event-sheet>
+        <event-sheet>GameOverSheet.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="4">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Function" uid="6" />
+        <global-instance type="WebStorage" uid="30" />
+        <global-instance type="Audio" uid="2">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+                <speed-of-sound>5000</speed-of-sound>
+                <doppler-factor>1</doppler-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Browser" uid="38" />
+        <global-instance type="Keyboard" uid="39" />
+    </global-instances>
+    <sounds-folder>
+        <file name="DropBoom.m4a" />
+        <file name="DropBoom.ogg" />
+        <file name="Select.m4a" />
+        <file name="Select.ogg" />
+        <file name="SelectPlay.m4a" />
+        <file name="SelectPlay.ogg" />
+        <file name="SelectSwipe.m4a" />
+        <file name="SelectSwipe.ogg" />
+        <file name="Clear.m4a" />
+        <file name="Clear.ogg" />
+        <file name="Impulse.m4a" />
+        <file name="Impulse.ogg" />
+        <file name="PowerUp.m4a" />
+        <file name="PowerUp.ogg" />
+        <file name="Timer.m4a" />
+        <file name="Timer.ogg" />
+        <file name="GameOver.m4a" />
+        <file name="GameOver.ogg" />
+    </sounds-folder>
+    <music-folder>
+        <file name="Glow Drop Title + Menu.m4a" />
+        <file name="Glow Drop Title + Menu.ogg" />
+        <file name="Glow Drop Gameplay.m4a" />
+        <file name="Glow Drop Gameplay.ogg" />
+    </music-folder>
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

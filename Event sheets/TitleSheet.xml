@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>TitleSheet</name>
+    <events>
+        <event-block sid="1744057299999508">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1459983144265011" type="System">
+                    <param id="0" name="Variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4657116782115951">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="5573228001035888" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="2207767065621548" type="Audio">
+                            <param id="0" name="Audio file">Glow Drop Title + Menu</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-20</param>
+                            <param id="1" name="Tag (optional)">&quot;Title&quot;</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="5839998149542713" type="TopLeft">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Y">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5359423994564557" type="System">
+                            <param id="0" name="Variable">MenuX</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="42208414772578" type="System">
+                            <param id="0" name="Variable">MenuY</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4071673605158121">
+                    <conditions>
+                        <condition id="-16" name="Is on layer" sid="8815573647350752" type="LevelText">
+                            <param id="0" name="Layer">&quot;Title&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="70247554109675" type="LevelText">
+                            <param id="0" name="Text">&quot;#LD31&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4143122734722297">
+                    <conditions>
+                        <condition id="-16" name="Is on layer" sid="1479814343996836" type="ScoreText">
+                            <param id="0" name="Layer">&quot;Title&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="4865607472593377" type="ScoreText">
+                            <param id="0" name="Text">&quot;Click/Touch to Begin&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6194639644061389">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="9200165315165024" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="5578925420982942" type="Audio">
+                            <param id="0" name="Audio file">Select</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7196287529863018" type="System">
+                            <param id="0" name="Variable">State</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

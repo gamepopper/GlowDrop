@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GameSheet</name>
+    <events>
+        <variable constant="0" name="BallDrop" sid="1734132027577645" static="0" type="number">2</variable>
+        <variable constant="0" name="DestroyedCount" sid="3713781968138175" static="0" type="number">0</variable>
+        <event-block sid="3958311244372757">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="6928955675575837" type="System">
+                    <param id="0" name="Variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <comment>Starts Game with a function specified amount of balls.</comment>
+                <event-block sid="1351442629321058">
+                    <conditions>
+                        <condition id="0" name="On function" sid="5806665746920507" type="Function">
+                            <param id="0" name="Name">&quot;StartGame&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="27" name="Set enabled" sid="1579249130739352" type="Bottom">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5474276363441396" type="System">
+                            <param id="0" name="Variable">BallDrop</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3859529196668128" type="System">
+                            <param id="0" name="Variable">DestroyedCount</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5445091900444685" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9636739587385144" type="System">
+                            <param id="0" name="Variable">Level</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3767356397548633">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="2476934501587424" type="System">
+                                    <param id="0" name="Count">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="2727842372422947" type="System">
+                                    <param id="0" name="Object to create">Ball</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">40 + random(400)</param>
+                                    <param id="3" name="Y">100 + random(700)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="5314537952858992" type="Ball">
+                                    <param id="0" name="Frame number">random(Ball.AnimationFrameCount)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Creates either a ball or a powerup based on random chance.</comment>
+                <event-block sid="2668077676442329">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1856765297404708" type="Function">
+                            <param id="0" name="Name">&quot;CreateBall&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Type" sid="396591935062493" static="0" type="number">0</variable>
+                        <event-block sid="5895031698492874">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4743202253512338" type="System">
+                                    <param id="0" name="First value">random(100 + DestroyedCount)</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="8940533011607612" type="System">
+                                    <param id="0" name="Object to create">PowerUp</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">40 + random(400)</param>
+                                    <param id="3" name="Y">10</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="1048409813855499" type="System">
+                                    <param id="0" name="Variable">Type</param>
+                                    <param id="1" name="Value">int(random(3))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="4823153745864556">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="2245880446884708" type="System">
+                                            <param id="0" name="Variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1286914707425638" type="PowerUp">
+                                            <param id="0" name="Animation">&quot;Random&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7285408027572378">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="8213920332194777" type="System">
+                                            <param id="0" name="Variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="5033656625853677" type="PowerUp">
+                                            <param id="0" name="Animation">&quot;Impulse&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3244959034594024">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="9001814622983508" type="System">
+                                            <param id="0" name="Variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="4984769472814999" type="PowerUp">
+                                            <param id="0" name="Animation">&quot;Clear&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="4957566853831918">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3486589534207571" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="3488277438098394" type="System">
+                                    <param id="0" name="Object to create">Ball</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">40 + random(400)</param>
+                                    <param id="3" name="Y">10</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="3854908211140182" type="Ball">
+                                    <param id="0" name="Frame number">random(self.AnimationFrameCount)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Destroys Ball and (recursively) any balls of the same colour next to it.</comment>
+                <event-block sid="9089550106585679">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8700942807504031" type="Function">
+                            <param id="0" name="Name">&quot;DestroyBall&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Frame1" sid="6188490485887408" static="0" type="number">0</variable>
+                        <event-block sid="3274081594606963">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="7441575313652481" type="Ball">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="4135769753934977" type="Ball">
+                                    <param id="0" name="Instance variable">ToDestroy</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="708353837961292" type="System">
+                                    <param id="0" name="Variable">Frame1</param>
+                                    <param id="1" name="Value">Ball.AnimationFrame</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4792963741577042">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="4465101297923612" type="System">
+                                    <param id="0" name="Object">Ball</param>
+                                    <param id="1" name="Expression">Frame1</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Ball.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="ballDist" sid="5503983617937963" static="0" type="number">0</variable>
+                                <event-block sid="9093521069497658">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="2139087333820584" type="System">
+                                            <param id="0" name="Object">Ball</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="9761048463575396" type="Function">
+                                            <param id="0" name="Name">&quot;DistanceCalc&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(0){###}Ball.UID</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="743569770597371" type="System">
+                                            <param id="0" name="Variable">ballDist</param>
+                                            <param id="1" name="Value">Function.ReturnValue</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="4105839170482286">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="7803806639287814" type="System">
+                                                    <param id="0" name="Variable">ballDist</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Value">66</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7041169245038167" type="Ball">
+                                                    <param id="0" name="Instance variable">ToDestroy</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="4363329529137221" type="Function">
+                                                    <param id="0" name="Name">&quot;DestroyBall&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Ball.UID{###}floor(Function.Param(1) * 1.5)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="5105697716601967">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="6463840735987906" type="Ball">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="4006011921692295" type="System">
+                                    <param id="0" name="Object to create">BonusText</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">Ball.X</param>
+                                    <param id="3" name="Y">Ball.Y</param>
+                                </action>
+                                <action id="0" name="Set text" sid="574193283625523" type="BonusText">
+                                    <param id="0" name="Text">Function.Param(1)</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="3770895481644107" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">Function.Param(1)</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="6598845365755671" type="Ball" />
+                                <action id="-10" name="Add to" sid="5098268458392549" type="System">
+                                    <param id="0" name="Variable">DestroyedCount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Calculates distance between two balls using their UIDs.</comment>
+                <event-block sid="9408868061724076">
+                    <conditions>
+                        <condition id="0" name="On function" sid="5058176394642966" type="Function">
+                            <param id="0" name="Name">&quot;DistanceCalc&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Ball1X" sid="9631941274857364" static="0" type="number">0</variable>
+                        <variable constant="0" name="Ball1Y" sid="9089736987077195" static="0" type="number">0</variable>
+                        <variable constant="0" name="Ball2X" sid="560071239103583" static="0" type="number">0</variable>
+                        <variable constant="0" name="Ball2Y" sid="813505954679483" static="0" type="number">0</variable>
+                        <event-block sid="9427242121575361">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="8511952543452334" type="Ball">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="8640146556473015" type="System">
+                                    <param id="0" name="Variable">Ball1X</param>
+                                    <param id="1" name="Value">Ball.X</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6345120936012887" type="System">
+                                    <param id="0" name="Variable">Ball1Y</param>
+                                    <param id="1" name="Value">Ball.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9293436789823285">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="3911409588842629" type="Ball">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="2240620642327457" type="System">
+                                    <param id="0" name="Variable">Ball2X</param>
+                                    <param id="1" name="Value">Ball.X</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="3128582691230972" type="System">
+                                    <param id="0" name="Variable">Ball2Y</param>
+                                    <param id="1" name="Value">Ball.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3644790959999611">
+                            <conditions />
+                            <actions>
+                                <action id="1" name="Set return value" sid="5295792783330102" type="Function">
+                                    <param id="0" name="Value">distance(Ball1X, Ball1Y, Ball2X, Ball2Y)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Change the ball colours to random colour.</comment>
+                <event-block sid="8625482304737911">
+                    <conditions>
+                        <condition id="0" name="On function" sid="6499573382987649" type="Function">
+                            <param id="0" name="Name">&quot;Randomize&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="4416499837096971" type="Ball">
+                            <param id="0" name="Frame number">random(Ball.AnimationFrameCount)</param>
+                        </action>
+                        <action id="0" name="Play" sid="9170546291720806" type="Audio">
+                            <param id="0" name="Audio file">PowerUp</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Cause all surrounding balls to move away from position on impulse.</comment>
+                <event-block sid="7664347209153582">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7959833517928116" type="Function">
+                            <param id="0" name="Name">&quot;SuddenImpulse&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="9810384213927942" type="Ball">
+                            <param id="0" name="Impulse">75</param>
+                            <param id="1" name="Angle">angle(Function.Param(0), Function.Param(1),Ball.X, Ball.Y)</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="1054451828509614" type="Audio">
+                            <param id="0" name="Audio file">Impulse</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Clears all balls on the bottom half of the screen.</comment>
+                <event-block sid="7030653408269927">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7071765604411151" type="Function">
+                            <param id="0" name="Name">&quot;ClearBottom&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="4093002008645959" type="System">
+                            <param id="0" name="Object to create">ClearLine</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">240</param>
+                            <param id="3" name="Y">427</param>
+                        </action>
+                        <action id="0" name="Play" sid="5478447323481876" type="Audio">
+                            <param id="0" name="Audio file">Clear</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7407768748144046">
+                    <conditions>
+                        <condition id="0" name="On function" sid="9228525497604378" type="Function">
+                            <param id="0" name="Name">&quot;EndGame&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="4060141443253432" type="Audio">
+                            <param id="0" name="Tag">&quot;Gameplay&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="6667776051814914" type="Audio">
+                            <param id="0" name="Audio file">GameOver</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-2</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7015179009602244" type="System">
+                            <param id="0" name="Variable">BallDrop</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="728504543884051" type="System">
+                            <param id="0" name="Variable">DestroyedCount</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Physics" id="27" name="Set enabled" sid="4104038525942962" type="Bottom">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5267559465380479" type="System">
+                            <param id="0" name="Variable">State</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="8294903559955512">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="7572636089716945" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Highscore&quot;</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">Score</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="1345319879073443" type="WebStorage">
+                                    <param id="0" name="Key">&quot;Highscore&quot;</param>
+                                    <param id="1" name="Value">Score</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8604109905397977">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="8886055756532122" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="8633420943252144" type="Function">
+                            <param id="0" name="Name">&quot;StartGame&quot;</param>
+                            <param id="1" name="Parameter {n}">16</param>
+                        </action>
+                        <action id="0" name="Set text" sid="3556965539857969" type="LevelText">
+                            <param id="0" name="Text">&quot;Level: &quot; &amp; Level</param>
+                        </action>
+                        <action id="-30" name="Set layer effect enabled" sid="5651959223557133" type="System">
+                            <param id="0" name="Layer">&quot;Game&quot;</param>
+                            <param id="1" name="Mode">0</param>
+                            <param id="2" name="Effect">&quot;BlurVertical&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="708294565659934" type="Audio">
+                            <param id="0" name="Audio file">Glow Drop Gameplay</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-20</param>
+                            <param id="1" name="Tag (optional)">&quot;Gameplay&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1078412494482431">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="3054270940824089" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-24" name="Move to top" sid="6727046559501268" type="LevelText" />
+                        <action id="-24" name="Move to top" sid="3619024940783896" type="ScoreText" />
+                        <action id="-23" name="Move at angle" sid="4975148060921674" type="BonusText">
+                            <param id="0" name="Angle">270</param>
+                            <param id="1" name="Distance"> dt * 20</param>
+                        </action>
+                        <action id="-23" name="Move at angle" sid="9096898194995987" type="ClearLine">
+                            <param id="0" name="Angle">90</param>
+                            <param id="1" name="Distance">dt * 400</param>
+                        </action>
+                        <action id="3" name="Set volume" sid="1417939066306197" type="Audio">
+                            <param id="0" name="Tag">&quot;Gameplay&quot;</param>
+                            <param id="1" name="dB">lerp(Audio.Volume(&quot;Gameplay&quot;), 0, 0.1)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6177855399821815">
+                            <conditions>
+                                <condition id="-16" name="Is on layer" sid="9953691804851015" type="ScoreText">
+                                    <param id="0" name="Layer">&quot;Game&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="8166168121896499" type="ScoreText">
+                                    <param id="0" name="Text">&quot;Score: &quot; &amp; Score</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7008904567777884">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7318567218924899" type="System">
+                            <param id="0" name="Variable">DestroyedCount</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="6426104992461764" type="System">
+                            <param id="0" name="Variable">DestroyedCount</param>
+                            <param id="1" name="Value">20</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="3363210861958007" type="System">
+                            <param id="0" name="Variable">Level</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="3184309076732917">
+                            <conditions>
+                                <condition id="-16" name="Is on layer" sid="6881077707269508" type="LevelText">
+                                    <param id="0" name="Layer">&quot;Game&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="8071514045768239" type="LevelText">
+                                    <param id="0" name="Text">&quot;Level: &quot; &amp; Level</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5521144433736306">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="2750426633739131" type="System">
+                            <param id="0" name="Interval (seconds)">BallDrop / Level</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2943783625143407" type="Function">
+                            <param id="0" name="Name">&quot;CreateBall&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7409509722128272">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="3253410578834406" type="Touch">
+                            <param id="0" name="Object">Ball</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="25" name="Play at object" sid="7198962028515738" type="Audio">
+                            <param id="0" name="Audio file">DropBoom</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">Ball</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="5380409946708166" type="Function">
+                            <param id="0" name="Name">&quot;DestroyBall&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.UID{###}50</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="3559278176262163" type="System">
+                            <param id="0" name="Object to create">Ball</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">40 + random(400)</param>
+                            <param id="3" name="Y">10</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="4574671071742765" type="Ball">
+                            <param id="0" name="Frame number">random(self.AnimationFrameCount)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="859739463510312">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="5406926948976517" type="Touch">
+                            <param id="0" name="Object">PowerUp</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4165337249119793">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="5102690573744762" type="PowerUp">
+                                    <param id="0" name="Animation">&quot;Random&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="2482071145499158" type="Function">
+                                    <param id="0" name="Name">&quot;Randomize&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3058637239956376">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="9052053875687122" type="PowerUp">
+                                    <param id="0" name="Animation">&quot;Impulse&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="1016373046146908" type="Function">
+                                    <param id="0" name="Name">&quot;SuddenImpulse&quot;</param>
+                                    <param id="1" name="Parameter {n}">PowerUp.X{###}PowerUp.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1136020129126345">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="5708132380376408" type="PowerUp">
+                                    <param id="0" name="Animation">&quot;Clear&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="5588831441661006" type="Function">
+                                    <param id="0" name="Name">&quot;ClearBottom&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7165179945984168">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Destroy" sid="2471076781434444" type="PowerUp" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5637366318495188">
+                    <conditions>
+                        <condition id="5" name="On any finished" sid="3380535626481199" type="PowerUp" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="2900647386551082" type="System">
+                            <param id="0" name="Object to create">Ball</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">PowerUp.X</param>
+                            <param id="3" name="Y">PowerUp.Y</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="2800561477228818" type="Ball">
+                            <param id="0" name="Frame number">random(self.AnimationFrameCount)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6568831807696577" type="PowerUp" />
+                    </actions>
+                </event-block>
+                <event-block sid="1777263269072425">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="5917888377560573" type="System">
+                            <param id="0" name="Object">Ball</param>
+                            <param id="1" name="Expression">Ball.Y</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3447949551713844">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="2165468674180003" type="System">
+                                    <param id="0" name="First value">Ball.PickedCount</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">25</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="9129917920952856" type="Function">
+                                    <param id="0" name="Name">&quot;EndGame&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2168378616798148">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="6178159348432561" type="ClearLine">
+                            <param id="0" name="Object">Ball</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="5786574350634599" type="System">
+                            <param id="0" name="Object to create">BonusText</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">Ball.X</param>
+                            <param id="3" name="Y">Ball.Y</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9028497213987363" type="BonusText">
+                            <param id="0" name="Text">10</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="8270117058259397" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9861997839498027" type="Ball" />
+                    </actions>
+                </event-block>
+                <event-block sid="4978964999219586">
+                    <conditions>
+                        <condition id="6" name="On frame changed" sid="5703012330751229" type="PowerUp" />
+                    </conditions>
+                    <actions>
+                        <action id="25" name="Play at object" sid="2708545628603972" type="Audio">
+                            <param id="0" name="Audio file">Timer</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">-2</param>
+                            <param id="3" name="Object">PowerUp</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

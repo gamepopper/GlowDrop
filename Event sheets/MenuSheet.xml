@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>MenuSheet</name>
+    <events>
+        <variable constant="0" name="MenuX" sid="1073394930667885" static="0" type="number">0</variable>
+        <variable constant="0" name="MenuY" sid="4629244811272187" static="0" type="number">0</variable>
+        <event-block sid="638890222387418">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7149284217227508" type="System">
+                    <param id="0" name="Variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1015591721219525">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="3449122744157933" type="Touch">
+                            <param id="0" name="Object">Buttons</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="2722197952664809">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="6138686754046382" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="6791301950089253" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="2873411417274184" type="System">
+                                    <param id="0" name="Variable">MenuY</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="33" name="Stop all" sid="260536608316395" type="Audio" />
+                                <action id="0" name="Play" sid="3346713667531104" type="Audio">
+                                    <param id="0" name="Audio file">SelectPlay</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-2</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="4612431225795428">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="7128309851208837" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="6042679342604745" type="System">
+                                    <param id="0" name="Variable">MenuY</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="7759926712129324" type="Audio">
+                                    <param id="0" name="Audio file">SelectPlay</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-2</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="810919222639648">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="2583164309032419" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">2</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="9826397039654828" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="6128008832448859" type="System">
+                                    <param id="0" name="Variable">MenuX</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="5420535806809972" type="Audio">
+                                    <param id="0" name="Audio file">SelectSwipe</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-2</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="3191095348280015">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="9930959631702715" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="2866181216449472" type="Buttons">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">4</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="4526481113739904" type="System">
+                                    <param id="0" name="Variable">MenuX</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="2777400862056794" type="Audio">
+                                    <param id="0" name="Audio file">SelectSwipe</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-2</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9323504178192418">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="6835782836865741" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="2888608970781142" type="TopLeft">
+                            <param id="0" name="X">lerp(TopLeft.X, LayoutWidth * MenuX, 0.1)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="5003177100829164" type="TopLeft">
+                            <param id="0" name="Y">lerp(TopLeft.Y, LayoutHeight * MenuY, 0.1)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5198890996151979">
+                            <conditions>
+                                <condition id="-16" name="Is on layer" sid="2143784137582782" type="LevelText">
+                                    <param id="0" name="Layer">&quot;Menu&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="4308841071307379">
+                                    <conditions>
+                                        <condition id="10" name="Is fullscreen" sid="3957185077160232" type="Browser" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="240521935939705" type="LevelText">
+                                            <param id="0" name="Text">&quot;Fullscreen: On&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1944447423232814">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="8454660886988324" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="7523189258584365" type="LevelText">
+                                            <param id="0" name="Text">&quot;Fullscreen: Off&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5286955141798612">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="6258149497854831" type="TopLeft">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Y co-ordinate">-LayoutHeight + 100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="3243466928961224" type="System">
+                            <param id="0" name="Variable">State</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="6883970327905573" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="4607667472264772">
+                    <conditions>
+                        <condition id="-16" name="Is on layer" sid="4607743997496811" type="ScoreText">
+                            <param id="0" name="Layer">&quot;Menu&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="2255710258371062" type="ScoreText">
+                            <param id="0" name="Text">&quot;Highscore: &quot; &amp; WebStorage.LocalValue(&quot;Highscore&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4483432250883502">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="1468508203289328" type="Touch">
+                            <param id="0" name="Object">LevelText</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1751310935396449">
+                            <conditions>
+                                <condition id="-16" name="Is on layer" sid="4270689593128237" type="LevelText">
+                                    <param id="0" name="Layer">&quot;Menu&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="3720209786574688">
+                                    <conditions>
+                                        <condition id="10" name="Is fullscreen" sid="4693767098776318" type="Browser" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="11" name="Cancel fullscreen" sid="4083531856046122" type="Browser" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8462029620038074">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="5481137566806889" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="10" name="Request fullscreen" sid="4047659411949648" type="Browser">
+                                            <param id="0" name="Mode">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
